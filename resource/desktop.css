@@ -1,4 +1,24 @@
 div.search-box {
-	width: 45%;
-	height: 50px;
+	display: block;
+	width: 550px;
+	height: 45px;
+	margin: 20px;
+}
+
+div.logo-block {
+	display: block;
+	margin: 120px 0 25px 20px;
+}
+
+div.logo-block svg {
+	display: block;
+	width: 220px;
+	height: 220px;
+}
+
+input.search-ipt {
+	height: 45px;
+	width: 400px;
+	padding: 0 32px 0 32px;
+	font-size: 16pt;
 }
