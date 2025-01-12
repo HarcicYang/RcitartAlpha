@@ -1,0 +1,17 @@
+{
+	"manifest_version": 3,
+	"name": "Rcitart Beta",
+	"version": "1.0",
+	"description": "Use Rcitart Alpha as your tab",
+	"permissions": [
+		"tabs"
+	],
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"icons": {
+		"16": "/resource/favicon.svg",
+		"48": "/resource/favicon.svg",
+		"128": "/resource/favicon.svg"
+	}
+}

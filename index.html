@@ -6,53 +6,7 @@
         <title>Rcitrat - Alpha</title>
         <link rel="icon" type="image/svg+xml" href="/resource/favicon.svg">
         <link rel="stylesheet" href="resource/style.css">
-        <script>
-            function getDomainFromUrl(url) {
-                const parsedUrl = new URL(url);
-                return parsedUrl.hostname;
-            }
-
-            function getCSSVar(variableName) {
-                return getComputedStyle(document.documentElement).getPropertyValue(variableName);
-            }
-
-            class PinItem extends HTMLElement {
-                urlToJump;
-                title;
-
-                connectedCallback() {
-                    this.title = this.getAttribute("title");
-                    this.urlToJump = this.getAttribute("url");
-                    const shadow = this.attachShadow({mode: "open"});
-                    const wrapper = document.createElement("div");
-                    let iconBlock = document.createElement("div");
-                    let iconImg = document.createElement("img");
-                    let titleText = document.createElement("p");
-                    iconBlock.className = "pin-item-block";
-                    iconImg.src = "http://" + getDomainFromUrl(this.urlToJump) + "/favicon.ico";
-                    iconImg.height = 50;
-                    iconImg.width = 50;
-                    iconBlock.style.margin = "20px 0 15px 30px";
-
-                    titleText.innerText = this.title;
-                    titleText.style.width = "110px";
-                    titleText.style.marginTop = "2px";
-                    titleText.style.fontSize = "12pt";
-                    titleText.style.textAlign = "center";
-                    titleText.style.color = getCSSVar("--text-color");
-
-                    iconBlock.appendChild(iconImg);
-                    wrapper.appendChild(iconBlock);
-                    wrapper.appendChild(titleText);
-                    shadow.appendChild(wrapper);
-                }
-
-                jump() {
-                    location.href = this.urlToJump;
-                }
-            }
-            customElements.define("pin-item", PinItem);
-        </script>
+        <script src="/resource/utils.js"></script>
     </head>
     <body>
         <div class="overlay">
@@ -94,38 +48,5 @@
             </div>
         </div>
     </body>
-    <script>
-        iptn = document.getElementById("i1");
-
-        function fadeAll() {
-            document.getElementById("sb").classList.add("fade");
-            document.getElementById("pin").classList.add("fade");
-        }
-
-        function goSearch() {
-            fadeAll();
-            window.location.href = "https://www.bing.com/search?q=" + iptn.value;
-        }
-
-        iptn.addEventListener("keypress", function (event) {
-            if (event.key === "Enter") {
-                goSearch();
-            }
-        })
-        iptb = document.getElementById("i2");
-        iptb.onclick = function () {
-            goSearch();
-        }
-
-        pt = document.getElementsByClassName("pin-item");
-        for (let i = 0; i < pt.length; ++i) {
-            const item = pt[i];
-            item.addEventListener("click", function () {
-                fadeAll();
-                item.jump();
-            })
-        }
-
-
-    </script>
+    <script src="/resource/loader.js"></script>
 </html>
