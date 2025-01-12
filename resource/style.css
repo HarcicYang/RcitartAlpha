@@ -23,7 +23,7 @@
 }
 
 body {
-	background: url("/projects/RcitartAlpha/resource/back.png") no-repeat center center fixed;
+	background: linear-gradient(45deg, rgba(8, 112, 228, 1), rgba(79, 217, 136, 1)), url("/resource/back.png") no-repeat center center fixed;
 	background-size: cover;
 }
 
