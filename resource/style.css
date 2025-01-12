@@ -1,6 +1,7 @@
 :root {
 	/* Colors */
 	--box-color: rgba(24, 25, 27, 0.7);
+	--sub-box-color: rgba(24, 25, 27, 0.85);
 	--box-shadow-color: rgba(24, 25, 27, 0.65);
 	--text-color: rgba(255, 255, 255, 0.75);
 	--overlay: rgba(0, 0, 0, 0.55);
@@ -9,6 +10,7 @@
 
 	@media (prefers-color-scheme: light) {
 		--box-color: rgba(255, 255, 255, 0.7);
+		--sub-box-color: rgba(255, 255, 255, 0.85);
 		--box-shadow-color: rgba(255, 255, 255, 0.65);
 		--text-color: rgba(24, 25, 27, 0.75);
 		--overlay: rgba(255, 255, 255, 0.55);
@@ -76,7 +78,10 @@ div.search-box {
 
 div.logo-block {
 	display: block;
-	margin: 120px 0 25px 20px;
+	margin: 120px 0 25px 0;
+	@media (max-width: 768px) {
+		margin: 75px 0 25px 0;
+	}
 }
 
 div.logo-block svg {
@@ -90,7 +95,7 @@ input.search-ipt {
 	width: 400px;
 	@media (max-width: 768px) {
 		height: 50px;
-		width: 60%;
+		width: 62%;
 	}
 	padding: 0 32px 0 32px;
 	font-size: 16pt;
@@ -128,7 +133,7 @@ button.search-btn {
 	font-size: 12pt;
 	@media (max-width: 768px) {
 		height: 40px;
-		width: 15%;
+		width: 17%;
 		font-size: 16pt;
 	}
 	text-align: center;
@@ -181,3 +186,64 @@ button.search-btn:not(:hover) {
 	animation: btn-unhover 0.2s forwards;
 }
 
+div#pin {
+	display: flex;
+	overflow-x: auto;
+	white-space: nowrap;
+	max-width: 45%;
+	@media (max-width: 768px) {
+		max-width: 95%;
+	}
+	min-width: 0;
+	max-height: 150px;
+	min-height: 0;
+	margin: 20px;
+	border: 0;
+	border-radius: 12px;
+	background: var(--box-color);
+	box-shadow: 0 0 12px 5px var(--box-shadow-color);
+	backdrop-filter: blur(12px);
+}
+
+div#pin .pin-item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex: 0 0 auto;
+	justify-items: center;
+	align-items: center;
+	height: 140px;
+	margin: 5px;
+	border: 0;
+	border-radius: 12px;
+	width: 120px;
+	background: var(--sub-box-color);
+}
+
+@keyframes up {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		transform: translateY(-12px);
+	}
+}
+
+@keyframes up-o {
+	from {
+		transform: translateY(-12px);
+	}
+	to {
+		transform: translateY(0);
+	}
+}
+
+div#pin .pin-item:hover {
+	animation: up 0.2s forwards;
+	transform: translateY(-12px);
+}
+
+div#pin .pin-item:not(:hover) {
+	animation: up-o 0.2s forwards;
+	transform: translateY(0);
+}
